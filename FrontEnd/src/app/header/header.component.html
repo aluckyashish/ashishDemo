@@ -1,0 +1,111 @@
+<div class="header fixed-top">
+<div class="headTop">
+    <a class="logo navbar-brand padLeft" routerLink="/">Ashish Pandey Demo Store</a>
+    <div class="header-right">
+    <a class="nav-link rightLink" routerLinkActive="active" routerLink="/login"
+            [routerLinkActiveOptions]="{exact: true}" *ngIf="!(authState | async).authenticated"><i class="fa fa-sign-in"></i> Sign In</a>
+            <a class="nav-link rightLink" routerLinkActive="active" routerLink="/signup"
+            [routerLinkActiveOptions]="{exact: true}" *ngIf="!(authState | async).authenticated"><i class="fa fa-user-plus"></i> Sign Up</a>
+            
+            <a class="nav-link rightLink" routerLinkActive="active" (click)="userSignOut()" *ngIf="(authState | async).authenticated"><i class="fa fa-sign-in"></i> Sign out</a>
+            
+            <a class="nav-link rightLink" routerLinkActive="active" routerLink="/orders" *ngIf="(authState | async).authenticated"><i class="fa fa-user-circle"></i> My Orders</a>
+          </div>
+
+  </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" (click)="isCollapsed = !isCollapsed"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="pages navbar-nav">
+      <div class="home">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+          <a class="nav-link" routerLinkActive="active" routerLink="/"
+            [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </div>
+      </div>
+      <div *ngIf="(browseState | async).categories">
+        <div  class="products" *ngFor="let c of (browseState | async).categories.data.getCategory">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+          <a class="nav-link" routerLinkActive="active" routerLink="/category/{{c.name}}">{{c.name}}</a>
+        </div>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+          <a class="nav-link" routerLinkActive="active" routerLink="/about"
+            [routerLinkActiveOptions]="{exact: true}">About Me</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="end navbar-nav">
+      <div class="cart navbar-nav" >
+        <div *ngFor="let e of (cartState | async).errors">
+          <div *ngIf="e.errorEffect == 'FETCH_CART'">
+            <div class="alert-danger">Error</div>
+          </div>
+        </div>
+
+        <div ngbDropdown display="dynamic" placement="bottom"
+          autoClose="true">
+
+          <div id="dropdownCart nav-link" ngbDropdownToggle>
+            <i class="fa fa-shopping-cart"></i>
+            <div class="item-count">
+              {{(cartState | async).cart.length}}
+            </div>
+
+          </div>
+
+          <div ngbDropdownMenu aria-labelledby="dropdownCart" class="cart-inside">
+            <div *ngIf="(cartState | async).cart && (cartState | async).cart.length" class="list-group">
+
+              <div class="product">
+                <a *ngFor="let cartItem of (cartState | async).cart" class="row"
+                  routerLink="/detail/{{cartItem.id}}">
+                  
+                  <div class="col-md-12 details">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p class="">{{cartItem.name}}</p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="amount"><span>Qty: {{cartItem.qty}}</span></p>
+                      </div>
+                      <div class="col-md-6">
+                        <p class="price">Price {{cartItem.amount}} INR</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+              </div>
+
+              <div class="controls">
+                <div class="row">
+                  <div class="col-md-6">
+                    <a routerLink="/cart" class="btn">Go to Cart</a>
+                  </div>
+                  <div class="col-md-6">
+                    <a routerLink="/checkout" class="btn btn-info">Checkout</a>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div *ngIf="!(cartState | async).cart || !(cartState | async).cart.length" class="empty-cart">
+              <p>Your cart is empty.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+ </nav>
+</div>

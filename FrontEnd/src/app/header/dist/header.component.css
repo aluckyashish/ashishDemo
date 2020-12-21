@@ -1,0 +1,264 @@
+.padLeft {
+  padding-left: 2%;
+  color: white;
+  font-size: 15px;
+}
+
+.btn-info {
+  color: #FFF !important;
+}
+
+.headTop {
+  background: #2874F0;
+  color: white;
+  padding: 2px;
+}
+
+.header-right {
+  float: right;
+  width: 27%;
+}
+
+.header nav {
+  width: 100%;
+}
+
+.header nav .pages {
+  width: 75%;
+}
+
+.header nav .end .cart .cart-inside {
+  left: -8px !important;
+  width: 309px !important;
+}
+
+.rightLink {
+  color: #FFF;
+  width: 40%;
+  float: left;
+  font-size: 15px;
+}
+
+.fixed-top {
+  background: #FFF;
+  border-bottom: 2px solid #eee;
+}
+
+.header nav {
+  justify-content: space-around;
+  background-color: white;
+}
+.header nav .navbar-brand {
+  font-size: 2em;
+  font-weight: bold;
+}
+.header nav .logo {
+  flex-grow: 1;
+  text-align: center;
+}
+.header nav .products {
+  float: left;
+}
+.header nav .pages {
+  flex-grow: 1;
+}
+.header nav .pages .nav-link.active {
+  color: #17a2b8;
+}
+.header nav .search {
+  flex-grow: 3;
+}
+.header nav .search div,
+.header nav .search input {
+  width: 100%;
+}
+.header nav .search input {
+  border-radius: 10px;
+}
+.header nav .end {
+  justify-content: center;
+  flex-grow: 3;
+}
+.header nav .end .login {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.header nav .end .login p {
+  margin: 0;
+}
+.header nav .end .register {
+  margin-left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #17a2b8;
+  border-radius: 10px;
+}
+.header nav .end .register p {
+  margin: 0;
+  color: white;
+}
+.header nav .end .user,
+.header nav .end .cart {
+  align-self: center;
+}
+.header nav .end .user i,
+.header nav .end .cart i {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+}
+.header nav .end .user {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.header nav .end .user .user-dropdown {
+  padding: 10px;
+  width: 20vw;
+}
+.header nav .end .user .user-dropdown div {
+  padding: 8px;
+}
+.header nav .end .user .user-dropdown i {
+  font-size: 18px;
+}
+.header nav .end .user .user-dropdown a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.header nav .end .user .user-dropdown a p {
+  display: inline;
+  margin: 0;
+  color: gray;
+  margin-left: 5px;
+}
+.header nav .end .user .user-dropdown a i {
+  position: relative;
+  top: 1px;
+  color: gray;
+  font-size: 20px;
+  align-content: center;
+}
+.header nav .end .user .user-dropdown a i.fa-archive, .header nav .end .user .user-dropdown a i.fa-user-o {
+  font-size: 16px;
+  margin-right: 2px;
+}
+.header nav .end .user .user-dropdown a.active p,
+.header nav .end .user .user-dropdown a.active i {
+  color: #17a2b8;
+}
+.header nav .end .cart {
+  margin-left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.header nav .end .cart .loader {
+  position: relative;
+  font-size: 6px;
+}
+.header nav .end .cart .item-count {
+  position: relative;
+  top: -6px;
+  left: -9px;
+  text-align: center;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  font-size: 10px;
+  vertical-align: super;
+  display: inline-block;
+  background-color: #17a2b8;
+  color: white;
+}
+.header nav .end .cart .cart-inside {
+  padding: 0;
+  width: 20vw;
+  max-height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.header nav .end .cart .cart-inside .list-group .product {
+  padding: 20px;
+  padding-top: 0;
+  max-height: 25vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-bottom: 1px solid #e1e8ee;
+}
+.header nav .end .cart .cart-inside .list-group .product a {
+  text-decoration: none;
+}
+.header nav .end .cart .cart-inside .list-group .product p {
+  margin: 0;
+  font-size: 14px;
+}
+.header nav .end .cart .cart-inside .list-group .product img {
+  height: 75px;
+  width: 75px;
+  margin-left: 15px;
+}
+.header nav .end .cart .cart-inside .list-group .product .color {
+  position: relative;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.header nav .end .cart .cart-inside .list-group .product .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.header nav .end .cart .cart-inside .list-group .product .details .product-name {
+  color: black;
+  font-weight: bold;
+}
+.header nav .end .cart .cart-inside .list-group .product .details .amount {
+  color: #333333;
+}
+.header nav .end .cart .cart-inside .list-group .product .details .amount span {
+  color: gray;
+}
+.header nav .end .cart .cart-inside .list-group .product .details .price {
+  color: #17a2b8;
+  font-weight: bold;
+}
+.header nav .end .cart .cart-inside .list-group .controls {
+  padding: 10px;
+  text-align: center;
+}
+.header nav .end .cart .cart-inside .list-group .controls div div {
+  padding: 0;
+}
+.header nav .end .cart .cart-inside .list-group .controls a {
+  width: 80%;
+  color: #17a2b8;
+  border: 1px solid #17a2b8;
+  border-radius: 10px;
+}
+.header nav .end .cart .cart-inside .list-group .controls button {
+  width: 80%;
+  border-radius: 10px;
+}
+.header nav .end .cart .cart-inside .empty-cart p {
+  margin: 0;
+  padding: 10px;
+  font-size: 14px;
+  color: #17a2b8;
+  font-weight: bold;
+}
+.header nav .end .dropdown-toggle::after {
+  display: none;
+}
+.header .user-warning {
+  border-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  text-align: center;
+}
+.header .user-warning a {
+  color: inherit;
+  font-weight: bold;
+}
+.header .user-warning hr {
+  padding: 0;
+  margin: 0;
+}

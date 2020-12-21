@@ -1,0 +1,17 @@
+.footerMain {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 10%;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .footerMain {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-top: 40%;
+    position: relative;
+  }
+}

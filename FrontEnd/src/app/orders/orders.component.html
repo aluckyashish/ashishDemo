@@ -1,0 +1,31 @@
+<div class="display container-fluid">
+    <a class="btn btn-info" routerLink="/" style="margin-bottom: 12px;">Back to Home</a>
+<div *ngIf="(orderState | async).orders.getOrderByEmail as orders; let i = index">
+    <div *ngFor=" let order of orders;let i = index" class="mainOrder">
+        <span class="orderTitle">Order {{i+1}}</span>
+        <div class="row item col-md-6" *ngFor="let products of order.product | parseJson" class="mainProduct col-md-12">
+            <div class="col-md-4 product-image qwe">
+              <img src="assets/images/product/{{products.image}}" alt="{{products.name}}" />
+            </div>
+    
+            <div class="col-md-8 description" >
+              <span class="col-md-12">
+                {{products.name}}
+              </span>
+              
+            <div class="col-md-12 quantity">
+                Qty: {{products.qty}}
+               </div>
+       
+               <div class="col-md-12 item-price">
+                 <span>INR {{products.amount}} </span>
+               </div>
+            </div>
+    
+    
+          </div>
+      
+    </div>
+
+</div>
+</div>

@@ -1,0 +1,11 @@
+<div class="carausel" *ngIf="(showcaseState | async).imageSlider">
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let banner of (showcaseState | async).imageSlider">
+      <img src="assets/images/{{banner.image}}" alt="{{banner.title}}">
+      <div class="carousel-caption">
+        <h3>{{banner.title}}</h3>
+        <p>{{banner.text}}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>

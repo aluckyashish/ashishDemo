@@ -1,0 +1,171 @@
+<div class="display container-fluid" *ngIf="(cartState | async).cart && (cartState | async).cart.length > 0">
+  <div class="title row">
+    <div class="col-md-8">
+      <p>Fill all the details</p>
+    </div>
+  </div>
+  <div class="form row">
+    <div class="col-md-6">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmitted()">
+        <div class="col-md-6 fltLeft">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" class="form-control" name="firstName" formControlName="firstName"
+              required>
+          </div>
+        </div>
+        <div class="col-md-6 fltLeft">
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" class="form-control" name="lastName" formControlName="lastName" required>
+
+          </div>
+        </div>
+        <div class="col-md-12 fltLeft">
+          <div class="form-group">
+            <label for="userEmail">Email</label>
+            <input type="email" id="userEmail" class="form-control" name="userEmail" formControlName="userEmail"
+              required disabled>
+          </div>
+
+        </div>
+        <div class="col-md-12 fltLeft">
+          <div class="form-group">
+            <label for="">Address</label>
+            <textarea class="form-control" id="address" formControlName="address"></textarea>
+          </div>
+        </div>
+        <div class="fltLeft">
+          <div class="col-md-6 fltLeft">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control" name="city" formControlName="city" required>
+            </div>
+          </div>
+          <div class="col-md-6 fltLeft">
+            <div class="form-group">
+              <label for="state">State</label>
+              <input type="text" id="state" class="form-control" name="state" formControlName="state" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="fltLeft">
+          <div class="col-md-6 fltLeft">
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input type="text" id="country" class="form-control" name="country" formControlName="country" required>
+            </div>
+          </div>
+
+          <div class="col-md-6 fltLeft">
+            <div class="form-group">
+              <label for="mobile">Mobile Number</label>
+              <input type="number" id="mobileNumber" class="form-control" name="mobileNumber"
+                formControlName="mobileNumber" required>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-12 fltLeft">
+            <button class="btn btn-info" [disabled]="checkoutForm.invalid" type="submit">Place Order
+            </button>
+          </div>
+
+
+      </form>
+    </div>
+    <div class="col-md-6">
+      <div class="">
+        <div class="row" *ngIf="(cartState | async).cart && (cartState | async).cart.length > 0">
+          <div class="cart-info">
+            <div class="title">
+              <span>You have {{cartItemCount}} item<span *ngIf="cartItemCount > 1">s</span> in your cart.</span>
+            </div>
+            <div *ngFor="let e of (cartState | async).errors">
+              <div *ngIf="e.errorEffect == 'REMOVE_FROM_CART'" class="alert-warning p-2">
+                <div *ngIf="e.error.status === 400 || e.error.status === 401">Could not remove item.</div>
+                <div *ngIf="e.error.status === 500 || e.error.status === 0">Internal server error! Please contact our
+                  support team.
+                </div>
+              </div>
+            </div>
+            
+            <div class="summary col-md-12">
+             
+              <div class="pricing">
+                <div class="row">
+                  <div class="col-md-4 col-4">
+                    <span class="label">Cart</span>
+                  </div>
+                  <div class="col-md-8 col-8">
+                    <span>INR {{cartTotal.toFixed(2) | number:'1.2' }}</span>
+                  </div>
+                </div>
+                <div class="row ">
+                  <div class="col-md-4 col-4">
+                    <span class="label">Shipping</span>
+                  </div>
+                  <div class="col-md-8 col-8">
+                    <span>INR {{this.shippingValue.toFixed(2) | number:'1.2' }}</span>
+                  </div>
+                </div>
+                <div class="allTotal">
+                  <div class="row ">
+                    <div class="col-md-4 col-4">
+                      <span class="label">Grand Total</span>
+                    </div>
+                    <div class="col-md-8 col-8">
+                      <span>INR {{this.grandTotal.toFixed(2) | number:'1.2' }}</span>
+                    </div>
+                  </div>
+                </div>
+        
+        
+              </div>
+        
+            </div>
+            <div class="row item" *ngFor="let cartItem of (cartState | async).cart">
+              <div class="col-md-3 product-image qwe">
+                <img src="assets/images/product/{{cartItem.image}}" alt="{{cartItem.title}}"
+                  (click)="goToItem(cartItem.id)" />
+              </div>
+
+              <div class="col-md-9 description">
+                <span>
+                  {{cartItem.name}}
+                </span>
+
+                <div class="col-md-12 quantity">
+                  <div class="col-md-6 qty">
+                    Qty:{{cartItem.qty}}
+                  </div>
+                  <div class="col-md-6 qty">
+                    <span>{{cartItem.amount}} €</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  
+  </div>
+  
+  <div class="success container" *ngIf="(cartState | async).cart.length <- 0">
+    <div class="row">
+      <div class="col-md-12 col-12 text-center">
+        <span class="fa fa-shopping-cart"></span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-12">
+        <p>Your cart is empty</p>
+        <a class="btn home" routerLink="/">Homepage</a>
+      </div>
+    </div>
+  </div>
+  

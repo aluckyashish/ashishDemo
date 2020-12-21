@@ -1,0 +1,152 @@
+.alertMessage {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.product-detail {
+  position: relative;
+  top: 150px;
+}
+.product-detail .product-img {
+  width: 450px;
+  height: 450px;
+}
+.product-detail .product-description {
+  margin-bottom: 20px;
+}
+.product-detail .product-description .category {
+  font-size: 10px;
+  color: gray;
+  background-color: #e1e8ee;
+  border-radius: 8px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.product-detail .product-description .name {
+  margin-top: 10px;
+  font-weight: 300;
+  font-size: 28px;
+  color: #43484d;
+  letter-spacing: -2px;
+}
+.product-detail .product-description .description {
+  min-height: 8vh;
+  font-size: 14px;
+  font-weight: 300;
+  color: #86939e;
+  line-height: 24px;
+}
+.product-detail .product-description .amount div {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.product-detail .product-description .amount span {
+  font-size: 12px;
+  color: gray;
+}
+.product-detail .product-description .amount input {
+  margin-top: 5px;
+  text-align: center;
+  width: 60%;
+  border: 2px solid #e1e8ee;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #5e6977;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.product-detail .product-description .amount input:focus {
+  outline: none;
+}
+.product-detail .product-description .price {
+  color: black;
+  font-weight: bold;
+}
+.product-detail .product-description .price span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.product-detail .product-description .add {
+  margin-top: 15px;
+}
+.product-detail .product-description .add .out-stock {
+  border: 1px solid gray;
+  color: gray;
+}
+.product-detail .product-description .add button {
+  border-radius: 10px;
+  width: 100%;
+}
+.product-detail .product-description .variant-title,
+.product-detail .product-description .product-detail-title,
+.product-detail .product-description .delivery-title {
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0;
+  margin-top: 15px;
+  color: gray;
+}
+.product-detail .product-description .variant-title.active,
+.product-detail .product-description .product-detail-title.active,
+.product-detail .product-description .delivery-title.active {
+  color: black;
+  text-decoration: underline;
+}
+.product-detail .product-description .product-detail-info,
+.product-detail .product-description .delivery-info {
+  height: 15vh;
+}
+.product-detail .product-description .product-detail-info .color,
+.product-detail .product-description .delivery-info .color {
+  margin-left: 5px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.product-detail .product-description .product-detail-info p,
+.product-detail .product-description .product-detail-info span,
+.product-detail .product-description .delivery-info p,
+.product-detail .product-description .delivery-info span {
+  margin: 0;
+  font-size: 14px;
+}
+.product-detail .product-description .product-detail-info div p,
+.product-detail .product-description .product-detail-info div span,
+.product-detail .product-description .delivery-info div p,
+.product-detail .product-description .delivery-info div span {
+  display: inline;
+}
+.product-detail .product-description .product-detail-info div p,
+.product-detail .product-description .delivery-info div p {
+  color: gray;
+}
+.product-detail .product-description .product-detail-info div span,
+.product-detail .product-description .delivery-info div span {
+  margin-left: 5px;
+}
+.product-detail .product-description .variant-info {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  cursor: pointer;
+}
+.product-detail .product-description .variant-info img {
+  width: 100%;
+  height: 100px;
+}
+.product-detail .product-description .variant-info div {
+  display: inline-block;
+}
+.product-detail .product-description .variant-info div.active {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.product-detail .product-description .delivery-info div:not(:first-child) span {
+  margin: 0;
+}

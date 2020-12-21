@@ -1,0 +1,22 @@
+<div class="featured-product container col-md-12" *ngIf="!(showcaseState | async).errors.includes('FETCH_FEATURED_PRODUCT')">
+  <div class="col-md-12">
+    <h3 class="title">Featured Products</h3>
+  </div>
+  <div *ngIf="!(showcaseState | async).loading.includes('FETCH_FEATURED_PRODUCT')" class="new-cards">
+    <div class="new-card col-lg-3 col-md-6 col-12" *ngFor="let n of (showcaseState | async).featureProduct">
+      <a routerLink="/product/detail/{{n.id}}">
+        <img src="assets/images/product/{{n.images}}" alt="{{n.title}}">
+        <hr>
+        <p class="product-name">{{n.title}}</p>
+        <div class="row">
+          <div class="col-md-6">
+            <p> {{n.category}} </p>
+          </div>
+          <div class="col-md-6">
+            <p> INR {{n.price.amount}} </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

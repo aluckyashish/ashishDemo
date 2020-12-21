@@ -1,0 +1,65 @@
+
+<div class="product-detail container" *ngIf=" (currentProductState | async).currentProduct as product">
+  <div *ngIf="fetchError != null">
+    <div class="alert-warning">Problem loading products...</div>
+  </div>
+  <div class="alert alert-success alertMessage" *ngIf="cartSuccess" role="alert">
+    Product added successfully in your cart.Please check your <a routerLink="/cart">cart</a>
+  </div>
+  <div *ngIf="innerLoading && !product" class="loader"></div>
+  <div *ngIf="innerLoading && !product" style="min-height: 50vh"></div>
+  <div *ngIf="product != null" class="row">
+    <div class="col-md-7">
+      <img class="product-img img-responsive" src="assets/images/product/{{product.images}}" alt="{{ product.title }}">
+    </div>
+    <div class="col-md-4 mr-auto">
+
+      <div class="product-description">
+        <span class="category">{{ product.category }}</span>
+        <h1 class="name">{{ product.title}}</h1>
+        <p class="description"> {{ product.descriptionMarkdown }}</p>
+
+
+        <div class="row">
+          <div class="amount col-md-6">
+            <div class="row"><span>Quantity</span></div>
+            <div class="row">
+              <input #Quantity type="number" placeholder="-" min="1" value="1">
+            </div>
+          </div>
+
+          <div class="price col-md-6">
+            <span>INR {{ product.price.amount }} </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12" *ngFor="let e of (cartState | async).errors">
+            <div *ngIf="e.errorEffect == 'ADD_TO_CART'" class="alert-warning">
+              <div class="col-md-12">
+                <div *ngIf="e.error.status === 400 || e.error.status === 401">Could not add item.</div>
+                <div *ngIf="e.error.status === 409">Please select a proper amount</div>
+                <div *ngIf="e.error.status === 500 || e.error.status === 0">Internal server error. Please contact our
+                  support team.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="add col-md-12">
+            
+            <div *ngIf="(cartState | async).loading" class="loader" style="top:0; left: 25%"></div>
+            <button  (click)="addToCart(product.id,product.images,product.title,product.price.amount,Quantity)"
+              [disabled]="(cartState | async).loading"
+              [style.display]="(cartState | async).loading ? 'none' : 'inline-block'"  *ngIf="continueAddtoCart" class="btn btn-info">Add to cart
+            </button>
+            <button *ngIf="!continueAddtoCart" class="btn btn-danger">Go to cart
+          </button>
+         
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
